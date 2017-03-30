@@ -1,45 +1,38 @@
 <html>
-  <head>
-    <title>短网址</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta http-equiv="pragma" content="no-cache" />
-	<meta http-equiv="cache-control" content="no-cache" />
-	<meta http-equiv="expires" content="0" />
-	<meta http-equiv="keywords" content="dwz,短网址,littletools,小工具,小兔子" />
-	<meta http-equiv="description" content="短网址" />
-	<link rel="icon" type="image/x-icon" href="image/favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="css/BasicGrey.css" />
-	<script src="js/jquery-1.11.2.js"></script>
-    <script src="js/jquery.form.js"></script>
-  </head>
- 
-  <body class="basic-grey">
-  
-    <h1>短网址</h1>
-    
-    <form action="setdwz" method="post" >
-		请输入要缩短的网址：<input type="text" name="value"/><br/>  
-		请输入短网址：http://www.littletools.ml/dwz/<input type="text" name="key" style="width:100px;"/>
-		&nbsp;&nbsp;&nbsp;<input type="submit" value="开始" tabindex="-1"/><br/>
-    </form>
-    
-    <div id="Result" style="display:none" >
-    已成功缩短为<a href="http://www.baidu.com"></a> 
-    </div>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <meta http-equiv="keywords" content="dwz,短网址,littletools,小工具,小兔子"/>
+    <meta http-equiv="description" content="短网址"/>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/BasicGrey.css"/>
+    <script src="js/jquery-1.11.2.js"></script>
+    <script src="js/flcom.js"></script>
+    <script src="js/index.js"></script>
 
-    <script type="text/javascript">
-	$(document).ready(function() {
-		console.log("Welcome to contact %o for any further question.","frcoder.lh@hotmail.com");
-		console.log(window.location.pathname);
-		if(window.location.pathname.indexOf("setdwz")!=-1){
-			showResultDiv();
-		}
-	});
-	
-	function showResultDiv(){
-		document.getElementById("Result").style.display="";
-	}
-	</script>
-    
-  </body>
+    <title>短网址</title>
+
+</head>
+
+<body class="basic-grey">
+
+<h1>短网址</h1>
+
+<form>
+    请输入要缩短的网址：<input id="in" type="text"/><br/>
+    请输入短网址：http://dwz.littletools.ml/<input id="out" type="text" style="width:100px;"/>
+    &nbsp;&nbsp;&nbsp;
+    <button id="submit" type="button" tabindex="-1">
+        开始
+    </button>
+    <br/>
+</form>
+
+<div id="result">
+    网址已成功缩短为&nbsp;<a id="url" target="_blank"></a>
+</div>
+
+</body>
 </html>
