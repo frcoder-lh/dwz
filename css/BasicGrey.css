@@ -99,7 +99,7 @@
         max-width: 80%;
         max-height: 80%;
         height: 900px;
-        padding-top: 40px;
+        padding-top: 30px;
         border: none;
         font-size: 40px;
     }
@@ -130,7 +130,7 @@
     }
 
     .basic-grey #out {
-        width: 42%;
+        width: 40%;
     }
 
     .basic-grey #submit {
