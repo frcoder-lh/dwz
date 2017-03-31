@@ -16,7 +16,12 @@ $(document).ready(function () {
                     "out": $("#out").val()
                 },
                 success: function (data) {
-                    if (data.statu) showResultDiv("http://dwz.littletools.ml/" + data.key);
+                    if (data.statu) {
+                        $("#submit").unbind("click");
+                        showResultDiv("http://dwz.littletools.ml/" + data.key);
+                        tempBindCopy("#submit", "#url", reload);
+                        $("#submit").text("复制");
+                    }
                     else alert("短网址已被占用，请重新输入！");
                 }
             });
@@ -25,7 +30,7 @@ $(document).ready(function () {
 
     $("body").keydown(function () {
         if (event.keyCode == "13") {// 13是回车键
-            $('#submit').click();
+            $("#submit").click();
         }
     });
 
@@ -49,4 +54,23 @@ function verify(url, out) {
 function showResultDiv(url) {
     $("#url").text(url).attr("href", url);
     $("#result").show();
+}
+
+function tempBindCopy(actor, target, success) {
+    var clipboard = new Clipboard(actor, {
+        text: function () {
+            return $(target).text();
+        }
+    }).on("success", function () {
+        alert($(target).text() + "已复制成功！");
+        clipboard.destroy();
+        success();
+    });
+}
+
+function reload() {
+    $("#submit").unbind("click");
+    $("#submit").click(function () {
+        window.location.reload();
+    }).text("刷新");
 }
